@@ -6,6 +6,7 @@ __all__ = ['convert']
 # %% ../nbs/00_core.ipynb 2
 import pandas as pd
 from fastcore.script import call_parse
+from fastcore.test import test_eq
 from fastcore.utils import globtastic
 from pathlib import Path
 import os
