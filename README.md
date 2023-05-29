@@ -17,7 +17,8 @@ When you install `csv_to_xls` you will get a cli tool named `csv2xls`:
 ```
 
     usage: csv2xls [-h] [--file_glob FILE_GLOB] [--out_file OUT_FILE] [--recursive]
-                   [--symlinks] [--file_re FILE_RE] [--folder_re FOLDER_RE]
+                   [--delimiter DELIMITER] [--quotechar QUOTECHAR] [--symlinks]
+                   [--file_re FILE_RE] [--folder_re FOLDER_RE]
                    [--skip_file_glob SKIP_FILE_GLOB] [--skip_file_re SKIP_FILE_RE]
                    [--skip_folder_re SKIP_FOLDER_RE]
                    path
@@ -33,6 +34,9 @@ When you install `csv_to_xls` you will get a cli tool named `csv2xls`:
                                        *.csv)
       --out_file OUT_FILE              output excel file (default: output.xlsx)
       --recursive                      search subfolders (default: False)
+      --delimiter DELIMITER            delimiter to use (default: ,)
+      --quotechar QUOTECHAR            quote character to escape the delimiter
+                                       (default: ")
       --symlinks                       follow symlinks? (default: False)
       --file_re FILE_RE                Only include files matching regex
       --folder_re FOLDER_RE            Only enter folders matching regex
