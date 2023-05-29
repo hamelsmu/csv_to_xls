@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nconvert\n\n convert (path:str, file_glob:str='*.csv', out_file:str='output.xlsx',\n          recursive:bool=True, delimiter=',', quotechar='\"',\n          symlinks:bool=True, file_re:str=None, folder_re:str=None,\n          skip_file_glob:str=None, skip_file_re:str=None,\n          skip_folder_re:str=None)\n\nConvert csv file(s) into an excel file, if multiple csvs put on tabs.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\npath\nstr\n\npath to searching for *.csv files\n\n\nfile_glob\nstr\n*.csv\nOnly include files matching glob\n\n\nout_file\nstr\noutput.xlsx\noutput excel file\n\n\nrecursive\nbool\nTrue\nsearch subfolders\n\n\ndelimiter\nstr\n,\ndelimiter to use\n\n\nquotechar\nstr\n”\nquote character to escape the delimiter\n\n\nsymlinks\nbool\nTrue\nfollow symlinks?\n\n\nfile_re\nstr\nNone\nOnly include files matching regex\n\n\nfolder_re\nstr\nNone\nOnly enter folders matching regex\n\n\nskip_file_glob\nstr\nNone\nSkip files matching glob\n\n\nskip_file_re\nstr\nNone\nSkip files matching regex\n\n\nskip_folder_re\nstr\nNone\nSkip folders matching regex,"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "csv_to_xls",
+    "section": "",
+    "text": "pip install csv_to_xls"
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "csv_to_xls",
+    "section": "",
+    "text": "pip install csv_to_xls"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "csv_to_xls",
+    "section": "How to use",
+    "text": "How to use\nWhen you install csv_to_xls you will get a cli tool named csv2xls:\n\n!csv2xls --help\n\nusage: csv2xls [-h] [--file_glob FILE_GLOB] [--out_file OUT_FILE] [--recursive]\n               [--delimiter DELIMITER] [--quotechar QUOTECHAR] [--symlinks]\n               [--file_re FILE_RE] [--folder_re FOLDER_RE]\n               [--skip_file_glob SKIP_FILE_GLOB] [--skip_file_re SKIP_FILE_RE]\n               [--skip_folder_re SKIP_FOLDER_RE]\n               path\n\nConvert csv file(s) into an excel file, if multiple csvs put on tabs.\n\npositional arguments:\n  path                             path to searching for *.csv files\n\noptional arguments:\n  -h, --help                       show this help message and exit\n  --file_glob FILE_GLOB            Only include files matching glob (default:\n                                   *.csv)\n  --out_file OUT_FILE              output excel file (default: output.xlsx)\n  --recursive                      search subfolders (default: False)\n  --delimiter DELIMITER            delimiter to use (default: ,)\n  --quotechar QUOTECHAR            quote character to escape the delimiter\n                                   (default: \")\n  --symlinks                       follow symlinks? (default: False)\n  --file_re FILE_RE                Only include files matching regex\n  --folder_re FOLDER_RE            Only enter folders matching regex\n  --skip_file_glob SKIP_FILE_GLOB  Skip files matching glob\n  --skip_file_re SKIP_FILE_RE      Skip files matching regex\n  --skip_folder_re SKIP_FOLDER_RE  Skip folders matching regex,"
+  },
+  {
+    "objectID": "index.html#example",
+    "href": "index.html#example",
+    "title": "csv_to_xls",
+    "section": "Example",
+    "text": "Example\nConsider the below csv files:\n\n!ls _tests/\n\naddresses.csv biostats.csv  faithful.csv  hw_200.csv    tally_cab.csv\n\n\nTo merge these csvs into one excel file named merged.xlsx:\n\n!csv2xls _tests/ --out_file merged.xlsx\n\nWe can see there is a worksheet for each filename:\n\nimport pandas as pd\npd.ExcelFile('merged.xlsx').sheet_names\n\n['addresses', 'biostats', 'hw_200', 'tally_cab', 'faithful']\n\n\nLet’s say we want to skip the biostats.csv file, we can use the --skip_file_re arg:\n\n!rm -f merged.xlsx\n!csv2xls _tests/ --out_file merged.xlsx --skip_file_re 'biostats*'\n\nNow that particular sheet is not there:\n\npd.ExcelFile('merged.xlsx').sheet_names\n\n['addresses', 'hw_200', 'tally_cab', 'faithful']"
+  }
+]
