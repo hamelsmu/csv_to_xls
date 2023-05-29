@@ -10,6 +10,8 @@ pip install csv_to_xls
 
 ## How to use
 
+When you install `csv_to_xls` you will get a cli tool named `csv2xls`:
+
 ``` python
 !csv2xls --help
 ```
