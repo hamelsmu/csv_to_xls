@@ -16,6 +16,8 @@ def convert(path:str, # path to searching for *.csv files
              file_glob:str='*.csv', # Only include files matching glob
              out_file:str='output.xlsx', # output excel file
              recursive:bool=True, # search subfolders
+             delimiter=',', # delimiter to use
+             quotechar='"', # quote character to escape the delimiter
              symlinks:bool=True, # follow symlinks?
              file_re:str=None, # Only include files matching regex
              folder_re:str=None, # Only enter folders matching regex
@@ -31,4 +33,5 @@ def convert(path:str, # path to searching for *.csv files
     with pd.ExcelWriter(out_file) as writer:
         for csv in csvs:
             sheet_name=csv.name[:-4]
-            pd.read_csv(csv).to_excel(writer, sheet_name=sheet_name, index=False)
+            (pd.read_csv(csv, delimiter=delimiter, quotechar=quotechar)
+             .to_excel(writer, sheet_name=sheet_name, index=False))
