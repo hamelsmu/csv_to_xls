@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "csv2xlsx"
+  site-url: "https://hamelsmu.github.io/csv2xlsx"
+  description: "convert csvs to excel"
+  repo-branch: main
+  repo-url: "https://github.com/hamelsmu/csv2xlsx"
